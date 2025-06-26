@@ -12,6 +12,7 @@ session_start();
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-b from-blue-50 to-blue-100">
+  <div id="page" class="min-h-screen flex flex-col">
   <!-- Header -->
   <header class="header bg-blue-100 shadow-md py-4 px-6 flex justify-between items-center z-10">
   <div class="logo-section flex items-center">
@@ -44,11 +45,17 @@ session_start();
   </i>
   </a>
 
+
   <?php if (isset($_SESSION['username'])): ?>
+    <?php if ($_SESSION['role'] === 'admin'): ?>
+  <a href="../comments/admin_support_list.php" class="ml-4 px-4 py-2 bg-yellow-400 text-white font-bold rounded-lg hover:bg-yellow-500 transition hidden md:inline-block">
+    👋 Xin chào, Admin:  <?= htmlspecialchars($_SESSION['ho_ten'])  ?>
+  </a>
+    <?php else: ?>
     <span class="text-gray-700 font-semibold hidden md:inline-block">
       👋 Xin chào, <?= htmlspecialchars($_SESSION['ho_ten']) ?>
     </span>
-    
+    <?php endif; ?>
     <a href="../login/logout.php" class="ml-4 px-4 py-2 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600 transition hidden md:inline-block">Đăng xuất</a>
   <?php else: ?>
     <a href="../login/login.php" class="ml-4 px-4 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700 transition hidden md:inline-block">Đăng nhập</a>
@@ -57,8 +64,9 @@ session_start();
 </header>
 
 
-  <!-- Footer -->
-  <footer class="footer bg-blue-100 text-gray-700 py-6">
+
+
+  <footer class="footer bg-blue-100 text-gray-700 py-6 mt-auto">
     <div class="footer-container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
       <div class="footer-section">
         <h3 class="footer-title text-lg font-bold mb-3 text-blue-500">drinkMART</h3>
@@ -87,7 +95,7 @@ session_start();
       <p class="text-center text-gray-600 text-sm">© 2025 drinkMART. All rights reserved.</p>
     </div>
   </footer>
-
+  </div>
   <script>
     // Toggle menu on mobile
     document.querySelector('.menu-toggle').addEventListener('click', () => {

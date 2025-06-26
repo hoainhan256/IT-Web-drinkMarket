@@ -1,8 +1,16 @@
 /* Custom styles for drinkMART layout with light blue theme */
-body {
-  font-family: Arial, sans-serif;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
 .bg-light-blue {
   background-color: #E0F2FE; /* Light blue background */
 }
@@ -32,7 +40,9 @@ body {
 .footer-links a {
   transition: color 0.3s ease;
 }
-
+#footer {
+  margin-top: auto;
+}
 .footer-container {
   max-width: 1200px;
 }
