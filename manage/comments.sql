@@ -3,6 +3,7 @@ CREATE TABLE comments (
     product_id INT NOT NULL,
     user_id INT NOT NULL,
     content TEXT NOT NULL,
+    support TINYINT DEFAULT 0, 
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE

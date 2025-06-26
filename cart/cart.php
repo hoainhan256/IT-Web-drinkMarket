@@ -48,6 +48,18 @@ $result = $stmt->get_result();
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="cart.css" />
+    <style>
+    body {
+  min-height: 100vh; /* hoặc 100dvh */
+  display: flex;
+  flex-direction: column;
+
+}
+
+#footer {
+  margin-top: auto;
+}
+</style>
 </head>
 <body class="flex flex-col min-h-screen bg-white">
   <div id="header"></div>

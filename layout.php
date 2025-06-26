@@ -39,14 +39,16 @@ session_start();
   </div>
 </form>
 <div class="icons flex items-center space-x-4">
-  <a href="../cart/cart.php">
-  <i class="fas fa-shopping-cart cursor-pointer text-blue-500 hover:text-blue-700"> 
-     
-  </i>
-  </a>
+
 
 
   <?php if (isset($_SESSION['username'])): ?>
+      <a href="../history/order_his.php" class="text-xl text-blue-600 hover:underline">📜
+      </a>
+      <a href="../cart/cart.php">
+  <i class="fas fa-shopping-cart cursor-pointer text-blue-500 hover:text-blue-700">    
+  </i>
+  </a>
     <?php if ($_SESSION['role'] === 'admin'): ?>
   <a href="../comments/admin_support_list.php" class="ml-4 px-4 py-2 bg-yellow-400 text-white font-bold rounded-lg hover:bg-yellow-500 transition hidden md:inline-block">
     👋 Xin chào, Admin:  <?= htmlspecialchars($_SESSION['ho_ten'])  ?>
