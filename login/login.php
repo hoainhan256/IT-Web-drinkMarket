@@ -10,6 +10,7 @@ $thongbao = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $en_password = MD5($password);
     // Truy vấn thông tin tài khoản
     $sql = "SELECT * FROM users WHERE username = ?";
     $stmt = $conn->prepare($sql);
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
 
         // So sánh password (nếu đã dùng password_hash)
-        if ($password === $user['password']){
+        if ($en_password === $user['password']){
             $_SESSION['username'] = $user['username'];
             $_SESSION['ho_ten'] = $user['ho_ten'];
             $_SESSION['role'] = $user['role'];

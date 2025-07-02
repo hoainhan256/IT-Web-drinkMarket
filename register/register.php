@@ -27,9 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt_check->num_rows > 0) {
             $thongbao = "Tên đăng nhập hoặc email đã tồn tại!";
         } else {
-            // Mã hóa mật khẩu (nếu dùng password_hash)
-            // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $hashed_password = $password; // Đơn giản hóa (có thể thay bằng hash sau)
+
+            $hashed_password = MD5($password); 
 
             $sql_insert = "INSERT INTO users (username, password, email, ho_ten) VALUES (?, ?, ?, ?)";
             $stmt_insert = $conn->prepare($sql_insert);
